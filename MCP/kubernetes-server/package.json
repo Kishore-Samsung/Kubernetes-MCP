@@ -1,0 +1,27 @@
+{
+  "name": "kubernetes-mcp-server",
+  "version": "0.1.0",
+  "description": "A Model Context Protocol Server for managing kubernetes",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "kubernetes-mcp-server": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "prepare": "npm run build",
+    "watch": "tsc --watch",
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+  },
+  "dependencies": {
+    "@kubernetes/client-node": "^0.18.0",
+    "@modelcontextprotocol/sdk": "0.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3"
+  }
+}
